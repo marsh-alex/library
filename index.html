@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>library app</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="title-container">
+            <h1>My Library</h1>
+        </div>
+
+        <div class="input-container">
+            <form id="form" class="form">
+                <div class="title">
+                    <label for="title">Title</label><br>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="author">
+                    <label for="author">Author</label><br>
+                    <input type="text" name="author">
+                </div>
+                <div class="status">
+                    <label for="status">Status</label><br>
+                    <select name="status">
+                        <option value="read">Read</option>
+                        <option value="not read">Not Read</option>
+                        <option value="reading">Reading</option>
+                    </select>
+                </div>
+                <div class="submit">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+        <div class="tile-container">
+            
+
+        </div>
+
+    </div>
 </body>
 </html>
+<script src="app.js"></script>
