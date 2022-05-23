@@ -1,0 +1,73 @@
+.title-container {
+    background-color: aliceblue;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.title-container h1 {
+    font-size: 42px;
+}
+
+/*Input Section */
+
+.input-container {
+    background-color: aliceblue;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: grid;
+    justify-items: center;
+    border: 1px solid grey;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 300px 300px 150px 150px; 
+    grid-template-rows: 100px;
+    justify-items: center;
+    align-items: center;
+}
+
+.title {
+    grid-column: 1/2;
+}
+
+.title input{
+    width: 250px;
+}
+
+.author {
+    grid-column: 2/3;
+}
+
+.author input {
+    width: 250px;
+}
+
+.status {
+    grid-column: 3/4;
+}
+
+.status select{
+    width: 100px;
+}
+
+.submit {
+    grid-column: 4/5;
+}
+
+.submit input{
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+/* Tile Section */
+.tile-container {
+    border: 1px solid black;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+
