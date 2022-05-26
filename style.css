@@ -60,14 +60,32 @@
 .submit input{
     height: 40px;
     width: 100px;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color: #33C3F0;
+    border: none;
 }
 
 /* Tile Section */
 .tile-container {
-    border: 1px solid black;
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    background-color: rgb(90, 118, 143);
+    gap: 20px;
+    justify-items: center;
+}
+
+.bookTile {
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: ;
+    border-radius: 10px;
+    height: 200px;
+    width:175px;
+    background-color: goldenrod;
+    padding: 10px;
+    justify-items: center;
 }
 
