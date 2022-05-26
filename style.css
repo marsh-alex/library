@@ -79,6 +79,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     gap: 10px;
+    row-gap: 25px;
     justify-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
