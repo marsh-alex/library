@@ -1,5 +1,4 @@
 .title-container {
-    background-color: aliceblue;
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 100px;
@@ -19,6 +18,7 @@
     display: grid;
     justify-items: center;
     border: 1px solid grey;
+    border-radius: 10px;
 }
 
 .form {
@@ -35,6 +35,8 @@
 
 .title input{
     width: 250px;
+    height: 30px;
+    border-radius: 5px;
 }
 
 .author {
@@ -43,6 +45,8 @@
 
 .author input {
     width: 250px;
+    height: 30px;
+    border-radius: 5px;
 }
 
 .status {
@@ -51,6 +55,8 @@
 
 .status select{
     width: 100px;
+    height: 36px;
+    border-radius: 5px;
 }
 
 .submit {
@@ -71,10 +77,11 @@
     margin-right: 100px;
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    background-color: rgb(90, 118, 143);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 10px;
     justify-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .bookTile {
@@ -84,8 +91,16 @@
     border-radius: 10px;
     height: 200px;
     width:175px;
-    background-color: goldenrod;
-    padding: 10px;
+    background-color: rgb(182, 220, 237);
     justify-items: center;
+    align-items: center;
+}
+
+.titleTile {
+    font-size: 24px;
+}
+
+.statusTile {
+    border-radius: 10px;
 }
 
