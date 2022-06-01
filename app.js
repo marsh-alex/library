@@ -11,19 +11,18 @@ form.addEventListener("submit", (e) => {
     clearForm();
 })
 
-// Constructor
-
+// CONSTRUCTOR
 let myLibrary = [];
 
 class Book {
     constructor(title, author, status) {
-        this.title = title;
-        this.author = author;
-        this.status = status;
+        this.title = form.title.value;
+        this.author = form.author.value;
+        this.status = form.status.value;
     }
 }
 
-// FUNCITON TO ADD BOOK TO LIBRARY AND LOCAL STORAGE
+// FUNCTION TO ADD BOOK TO LIBRARY AND LOCAL STORAGE
 function addBookToLibrary() {
     if (title.value.legnth === 0 || author.value.length === 0) {
         alert("Please fill all fields");
@@ -35,18 +34,18 @@ function addBookToLibrary() {
     render();
 }
 
-// Set Item to Local Storage 
+// SET ITEM TO LOCAL STORAGE 
 function updateLocalStorage() {
     localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
-// CLEAR FORM
+// FUNCTION TO CLEAR FORM AFTER SUMBIT 
 function clearForm() {
     title.value = "";
     author.value = "";
 }
 
-//CREATES BOOK TILE
+// CREATES BOOK TILE
 function createTile(item) {
     const library = document.getElementById('tile-container');
     const bookTile = document.createElement('div');
@@ -69,20 +68,21 @@ function createTile(item) {
     bookAuthor.classList.add('authorTile');
     bookTile.appendChild(bookAuthor);
 
-    bookStatus.textContent = item.status;
+    //bookStatus.value = bookStatus.selectedOptions.value;
+    //bookStatus.value = 
     bookStatus.classList.add('statusTile');
     bookTile.appendChild(bookStatus);
 
-    statusOption.textContent = 'Read';
-    statusOption.value = 'Read';
+    statusOption.textContent = 'read';
+    statusOption.value = 'read';
     bookStatus.appendChild(statusOption);
 
-    statusOptionNR.textContent = 'Not Read';
-    statusOptionNR.value = "Not Read";
+    statusOptionNR.textContent = 'not read';
+    statusOptionNR.value = "not read";
     bookStatus.appendChild(statusOptionNR)
 
-    statusOptionReading.textContent = 'Reading';
-    statusOptionReading.value = "Reading";
+    statusOptionReading.textContent = 'reading';
+    statusOptionReading.value = "reading";
     bookStatus.appendChild(statusOptionReading);
 
     bookDelete.textContent = 'Delete';
@@ -90,9 +90,21 @@ function createTile(item) {
     bookTile.appendChild(bookDelete);
 
     library.appendChild(bookTile);
+
+// UPDATE LOCAL STORAGE WHEN BOOK TILE STATUS UPDATES
+    bookStatus.addEventListener('change', () => {
+        item.status = bookStatus.value;
+        console.log(bookStatus.value);
+        updateLocalStorage();
+        render();
+    })
+    
 }
 
-//Creates visual tile in browser
+
+
+
+// CREATES VISUAL TILE IN DOM
 function render() {
     const library = document.getElementById('tile-container');
     const bookTile = document.querySelectorAll('.bookTile');
@@ -103,7 +115,7 @@ function render() {
     }
 }
 
-//Renders books from local storage after page refresh
+// RENDERS BOOKS FROM STORAGE AFTER PAGE REFRESH
 function restore() {
     if (!localStorage.myLibrary) {
         render();
@@ -114,5 +126,10 @@ function restore() {
         render();
     }
 }
+
+
+
+
+
 
 restore();
