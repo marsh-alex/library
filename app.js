@@ -11,6 +11,7 @@ form.addEventListener("submit", (e) => {
     clearForm();
 })
 
+// Constructor
 
 let myLibrary = [];
 
@@ -22,7 +23,7 @@ class Book {
     }
 }
 
-//ADDS BOOK TO LIBRARY AND LOCAL STORAGE
+// FUNCITON TO ADD BOOK TO LIBRARY AND LOCAL STORAGE
 function addBookToLibrary() {
     if (title.value.legnth === 0 || author.value.length === 0) {
         alert("Please fill all fields");
@@ -53,9 +54,12 @@ function createTile(item) {
     const bookAuthor = document.createElement('div');
     const bookStatus = document.createElement('select');
     const statusOption = document.createElement('option');
+    const statusOptionNR = document.createElement('option');
+    const statusOptionReading = document.createElement('option');
     const bookDelete = document.createElement('button');
 
     bookTile.setAttribute('id', myLibrary.indexOf(item));
+    bookTile.classList.add('bookTile');
 
     bookTitle.textContent = item.title;
     bookTitle.classList.add('titleTile');
@@ -73,12 +77,13 @@ function createTile(item) {
     statusOption.value = 'Read';
     bookStatus.appendChild(statusOption);
 
-    statusOption.textContent = 'Not Read';
-    statusOption.value = "Not Read";
+    statusOptionNR.textContent = 'Not Read';
+    statusOptionNR.value = "Not Read";
+    bookStatus.appendChild(statusOptionNR)
 
-    statusOption.textContent = 'Reading';
-    statusOption.value = "Reading";
-    bookStatus.appendChild(statusOption);
+    statusOptionReading.textContent = 'Reading';
+    statusOptionReading.value = "Reading";
+    bookStatus.appendChild(statusOptionReading);
 
     bookDelete.textContent = 'Delete';
     bookDelete.classList.add('deleteBtn');
