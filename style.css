@@ -97,8 +97,9 @@
 }
 
 .titleTile {
-    font-size: 24px;
+    font-size: 22px;
     align-self: end;
+    justify-self: center;
 }
 
 .authorTile {
