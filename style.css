@@ -160,6 +160,7 @@
 }
 
 
+
 .footer {
     height: 20px;
     display: flex;
@@ -167,4 +168,10 @@
     justify-content: center;
     margin-top: 100px;
     margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.footer i {
+    color: black;
+    margin-left: 5px;
 }
