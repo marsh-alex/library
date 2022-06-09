@@ -5,8 +5,11 @@
     height: 100%;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
 .container {
     display: grid;
+    height: 100%;
 }
 
 .title-container {
@@ -19,8 +22,9 @@
 }
 
 .title-container h1 {
-    font-size: 42px;
+    font-size: 70px;
     margin-left: 100px;
+    font-family: 'Poiret One', cursive;
 }
 
 /*Input Section */
@@ -54,6 +58,8 @@
     grid-column: 1/2;
     height: 50px;
 }
+
+
 
 .title input{
     width: 250px;
@@ -111,33 +117,39 @@
 }
 
 .bookTile {
-    border: 1px solid black;
+    border: 1px solid grey;
     display: grid;
-    grid-template-rows: ;
+    grid-template-rows: 3fr 1fr 1fr 1fr;
     border-radius: 10px;
-    height: 200px;
+    height: 225px;
     width:175px;
-    background-color: rgb(182, 220, 237);
+    background-color: aliceblue;
     justify-items: center;
 }
 
 .titleTile {
     font-size: 22px;
-    align-self: end;
+    align-self: center;
     justify-self: center;
     height: 30px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
 }
 
 .authorTile {
-    align-self: center;
+    align-self: end;
     height: 30px;
+    font-family: 'Poiret One', cursive;
+    font-size: 16px;
 }
 
 .statusTile {
     border-radius: 10px;
     height: 25px;
     width: 100px;
-    align-self: center;
+    align-self: end;
 }
 
 .deleteBtn {
@@ -145,4 +157,14 @@
     width: 50px;
     border-radius: 5px;
     align-self: center;
+}
+
+
+.footer {
+    height: 20px;
+    display: flex;
+    bottom: 0;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
 }
