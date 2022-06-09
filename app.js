@@ -1,19 +1,14 @@
+
+// ARRAY TO STORE BOOK OBJECT DATA
+let myLibrary = [];
+
 const title = document.getElementById('title');
 const author = document.getElementById('author');
 const status = document.getElementById('status');
 const form = document.getElementById('form')
 const tile_container = document.getElementById('tile-container');
 
-// Form submit - adds book to library + local storage
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    addBookToLibrary();
-    clearForm();
-})
-
 // CONSTRUCTOR
-let myLibrary = [];
-
 class Book {
     constructor(title, author, status) {
         this.title = form.title.value;
@@ -34,13 +29,36 @@ function addBookToLibrary() {
     render();
 }
 
-
-
 // FUNCTION TO CLEAR FORM AFTER SUMBIT 
 function clearForm() {
     title.value = "";
     author.value = "";
 }
+
+// FORM SUBMIT - ADDS BOOK TO MYLIBRARY & LOCAL STORAGE
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addBookToLibrary();
+    clearForm();
+})
+
+// CREATES VISUAL TILE IN DOM
+function render() {
+    const library = document.getElementById('tile-container');
+    const bookTile = document.querySelectorAll('.bookTile');
+    bookTile.forEach(bookTile => library.removeChild(bookTile))
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        createTile(myLibrary[i]);
+    }
+}
+
+// SET ITEM TO LOCAL STORAGE 
+function updateLocalStorage() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
+
+
 
 // CREATES BOOK TILE
 function createTile(item) {
@@ -66,10 +84,10 @@ function createTile(item) {
     bookTile.appendChild(bookStatus);
     if (item.status === 'read') {
         bookStatus.textContent = 'Read';
-        bookStatus.style.backgroundColor = '#54C750';
+        bookStatus.style.backgroundColor = '#03cea4';
     } if (item.status === 'not read'){
         bookStatus.textContent = "Not Read";
-        bookStatus.style.backgroundColor = '#CF1D20';
+        bookStatus.style.backgroundColor = '#fb4d3d';
     };
 
     bookDelete.textContent = 'Delete';
@@ -95,40 +113,6 @@ function createTile(item) {
         render();
         console.log(item.status);
     })
-}
-
-// SET ITEM TO LOCAL STORAGE 
-function updateLocalStorage() {
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-}
-
-
-       //document.querySelector('.statusTile').value = item.status;
-        //bookStatus.value = localStorage.getItem(item.status);
-        //bookStatus.value = localStorage.getItem(this.status);
-        //const $status = document.getElementById('$status');
-        //$status.options[$status.options.selectedIndex].selected = 'true';
-        //bookStatus.value = bookStatus.options[bookStatus.selectedIndex].value;
-
-//function selected() {
-    //let option;
-    //for (let i = 0; i < bookStatus.options.length; i++){
-      //  option = bookStatus.options[i];
-      //  if (option.value == 'read' || 'not read' || 'reading')
-      //      option.setAttribute('selected', true);
-  //      }
-//}
-
-
-// CREATES VISUAL TILE IN DOM
-function render() {
-    const library = document.getElementById('tile-container');
-    const bookTile = document.querySelectorAll('.bookTile');
-    bookTile.forEach(bookTile => library.removeChild(bookTile))
-
-    for (let i = 0; i < myLibrary.length; i++) {
-        createTile(myLibrary[i]);
-    }
 }
 
 // RENDERS BOOKS FROM STORAGE AFTER PAGE REFRESH
