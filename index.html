@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>library app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -37,19 +41,18 @@
             </form>
         </div>
 
-        <div class="tile-container" id="tile-container">
-           <!-- <div class="bookTile">
-                <div class="titleTile">Sirens of Titan</div>
-                <div class="authorTile">by Kurt Vonnegaut</div>
-                <select class="statusTile">
-                    <option value="read">read</option>
-                    <option value="not read">not read</option>
-                    <option value="reading">reading</option>
-                </select>
-                <button class="deleteBtn">Delete</button>
-            </div>-->
-        </div>
+        <div class="tile-container" id="tile-container"></div>
+        <footer class="footer">
+        <p>Copyright ©
+            <script>document.write(new Date().getFullYear())</script> 
+            marsh-alex
+        </p>
+        <a href="https://github.com/marsh-alex" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </footer>
     </div>
+    
 </body>
 </html>
 <script src="app.js"></script>
