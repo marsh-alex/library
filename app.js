@@ -34,10 +34,7 @@ function addBookToLibrary() {
     render();
 }
 
-// SET ITEM TO LOCAL STORAGE 
-function updateLocalStorage() {
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-}
+
 
 // FUNCTION TO CLEAR FORM AFTER SUMBIT 
 function clearForm() {
@@ -51,10 +48,7 @@ function createTile(item) {
     const bookTile = document.createElement('div');
     const bookTitle = document.createElement('div');
     const bookAuthor = document.createElement('div');
-    const bookStatus = document.createElement('select');
-    const statusOption = document.createElement('option');
-    const statusOptionNR = document.createElement('option');
-    const statusOptionReading = document.createElement('option');
+    const bookStatus = document.createElement('button');
     const bookDelete = document.createElement('button');
 
     bookTile.setAttribute('id', myLibrary.indexOf(item));
@@ -68,22 +62,15 @@ function createTile(item) {
     bookAuthor.classList.add('authorTile');
     bookTile.appendChild(bookAuthor);
 
-    //bookStatus.value = bookStatus.selectedOptions.value;
-    //bookStatus.value = 
     bookStatus.classList.add('statusTile');
     bookTile.appendChild(bookStatus);
-
-    statusOption.textContent = 'read';
-    statusOption.value = 'read';
-    bookStatus.appendChild(statusOption);
-
-    statusOptionNR.textContent = 'not read';
-    statusOptionNR.value = "not read";
-    bookStatus.appendChild(statusOptionNR)
-
-    statusOptionReading.textContent = 'reading';
-    statusOptionReading.value = "reading";
-    bookStatus.appendChild(statusOptionReading);
+    if (item.status === 'read') {
+        bookStatus.textContent = 'Read';
+        bookStatus.style.backgroundColor = '#54C750';
+    } if (item.status === 'not read'){
+        bookStatus.textContent = "Not Read";
+        bookStatus.style.backgroundColor = '#CF1D20';
+    };
 
     bookDelete.textContent = 'Delete';
     bookDelete.classList.add('deleteBtn');
@@ -91,17 +78,39 @@ function createTile(item) {
 
     library.appendChild(bookTile);
 
+    
 // UPDATE LOCAL STORAGE WHEN BOOK TILE STATUS UPDATES
-    bookStatus.addEventListener('change', () => {
-        item.status = bookStatus.value;
-        console.log(bookStatus.value);
+    bookStatus.addEventListener('click', () => {
+        if (item.status === "read") {
+            item.status = "not read";
+        } else (item.status = "read");
         updateLocalStorage();
         render();
+        console.log(item.status);
     })
-    
+}
+
+// SET ITEM TO LOCAL STORAGE 
+function updateLocalStorage() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
 
+       //document.querySelector('.statusTile').value = item.status;
+        //bookStatus.value = localStorage.getItem(item.status);
+        //bookStatus.value = localStorage.getItem(this.status);
+        //const $status = document.getElementById('$status');
+        //$status.options[$status.options.selectedIndex].selected = 'true';
+        //bookStatus.value = bookStatus.options[bookStatus.selectedIndex].value;
+
+//function selected() {
+    //let option;
+    //for (let i = 0; i < bookStatus.options.length; i++){
+      //  option = bookStatus.options[i];
+      //  if (option.value == 'read' || 'not read' || 'reading')
+      //      option.setAttribute('selected', true);
+  //      }
+//}
 
 
 // CREATES VISUAL TILE IN DOM
