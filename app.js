@@ -78,8 +78,15 @@ function createTile(item) {
 
     library.appendChild(bookTile);
 
+// DELETES TILE FROM UI AND LOCAL STORAGE
+    bookDelete.addEventListener('click', () => {
+        myLibrary.splice(myLibrary.indexOf(item), 1);
+        updateLocalStorage();
+        render();
+    })
+
     
-// UPDATE LOCAL STORAGE WHEN BOOK TILE STATUS UPDATES
+// UPDATE BOOK TILE STATUS & LOCAL STORAGE
     bookStatus.addEventListener('click', () => {
         if (item.status === "read") {
             item.status = "not read";
