@@ -18,6 +18,7 @@ This is a personal library app that can be used to track the books you have read
 - GitHub
 
 ## Outcome: 
+- learned how to use object constructors to create objects from user inputs
 - Learned how to use localStorage
 - Used CSS Grid to create layout
 - Leanred how to create html elements with JavaScript
