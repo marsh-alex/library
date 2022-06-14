@@ -22,3 +22,8 @@ This is a personal library app that can be used to track the books you have read
 - Used CSS Grid to create layout
 - Leanred how to create html elements with JavaScript
 - Strengthened knowledge of DOM manipulation, CSS layout styling and JavaScript functionality
+
+##Languages:
+- HTML 
+- CSS
+- JavaScript
